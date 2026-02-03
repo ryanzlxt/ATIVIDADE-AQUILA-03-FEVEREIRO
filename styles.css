@@ -1,0 +1,67 @@
+body {
+
+    margin: 0;
+    height: 100vh;
+    background: #EBF9FF;
+    display: flex;
+
+
+}
+
+#card1 {
+
+
+    background-color: #1F285D;
+    width: 100%;
+    height: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+
+
+}
+
+#barra1 {
+    
+    background-color: white;
+    width: 500px;
+    height: 47px;
+    line-height: 4vh;
+    border-radius: 24px;
+    padding: 0 16px;
+    text-align: center;
+    box-sizing: border-box;
+    font-size: medium;
+    color: #201533;
+    margin-top: 90px;
+    
+}
+
+.search-box {
+    position: relative;
+}
+
+#apagar1 {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+}
+
+#barra1 {
+    width: 50vh;
+    height: 44px;
+    border-radius: 24px;
+
+    padding-left: 44px; 
+    box-sizing: border-box;
+}
+
+#menu-btn{
+
+position: fixed;
+
+}
