@@ -10,58 +10,102 @@ body {
 
 #card1 {
 
-
+    position: relative;
     background-color: #1F285D;
     width: 100%;
-    height: 25%;
+    height: 30%;
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
 
 
 }
 
-#barra1 {
-    
-    background-color: white;
-    width: 500px;
-    height: 47px;
-    line-height: 4vh;
-    border-radius: 24px;
-    padding: 0 16px;
-    text-align: center;
-    box-sizing: border-box;
-    font-size: medium;
-    color: #201533;
-    margin-top: 90px;
-    
+.doctor-img{
+
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    height: 90%;
+    z-index: 1;
+    -webkit-mask-image: linear-gradient(  
+ to bottom,
+    black 0%,
+    black 0%,
+    transparent 100%
+  );
+
+/* pra deixar a imagem com um degrade radial */
+
+
 }
 
 .search-box {
-    position: relative;
-}
-
-#apagar1 {
-    position: absolute;
-    top: 50%;
-    left: 12px;
-    transform: translateY(-50%);
-    width: 20px;
-    height: 20px;
+  position: relative;
+  z-index: 10;
 }
 
 #barra1 {
-    width: 50vh;
-    height: 44px;
-    border-radius: 24px;
-
-    padding-left: 44px; 
-    box-sizing: border-box;
+  background-color: #EBF9FF;
+  width: 450px;
+  height: 44px;
+  border-radius: 24px;
+  padding-left: 90px; /* espaço pro ícone */
+  box-sizing: border-box;
+  font-size: medium;
+  color: #201533;
+  margin-top: 180px;
 }
 
-#menu-btn{
+#apagar1 {
+  position: absolute;
+  top: 50%;
+  left: 14px;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
 
-position: fixed;
+#logos {
+    position: fixed;
+    top: -7px;
+    left: 9px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 999;
+}
+
+.logo{
+
+order: 1;
+height: 44px;
+width: auto;
+display: block;
 
 }
+
+.menu-btn {
+
+    height: 30px;
+    width: auto;
+    background-color: #EBF9FF;
+    padding: 10px;
+    border-radius: 15px;
+    display: block;
+    cursor: pointer;
+}
+
+#Texto{
+
+    order: 3;
+    font-family: Montserrat;
+    color: #EBF9FF;
+
+}
+
+
+
