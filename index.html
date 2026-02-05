@@ -1,82 +1,121 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LocaliSUS</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
+  <!-- Define o conjunto de caracteres (acentos etc.) -->
+  <meta charset="UTF-8">
+
+  <!-- Responsivo: ajusta escala e largura pra celular -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Título que aparece na aba do navegador -->
+  <title>LocaliSUS</title>
+
+  <!-- Link do CSS do projeto -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Otimização: prepara conexão com Google Fonts antes de baixar as fontes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Importa as fontes Montserrat e Roboto -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
 </head>
 
 <body>
 
-    <div id="logos">
-        <img src="Localisus.png" class="logo">
-        <img src="menu.svg" class="menu-btn">
-        <h1 id="Texto"> LOCALISUS </h1>
+  <!-- Topo fixo com logo, botão de menu e título -->
+  <div id="logos">
+    <!-- Logo do projeto -->
+    <!-- Dica: colocar alt ajuda acessibilidade e SEO -->
+    <img src="Localisus.png" class="logo" alt="Logo do LocaliSUS">
+
+    <!-- Botão do menu (ícone). Está como imagem clicável no CSS -->
+    <!-- Se quiser ficar perfeito pra acessibilidade: usar <button> com aria-label -->
+    <img src="menu.svg" class="menu-btn" alt="Abrir menu">
+
+    <!-- Nome do app no topo -->
+    <h1 id="Texto"> LOCALISUS </h1>
+  </div>
+
+  <!-- Seção principal de busca -->
+  <!-- role="search" indica que essa área é de pesquisa -->
+  <section id="card1" role="search">
+
+    <!-- Imagem decorativa do médico (fica no fundo) -->
+    <div>
+      <img src="medico.png" class="doctor-img" alt="">
+      <!-- alt vazio = ok se for só decorativo -->
     </div>
 
+    <!-- Caixa que contém o input, centralizado -->
+    <div class="search-box">
+      <!-- Input de busca -->
+      <!-- autocomplete off: não sugere histórico -->
+      <!-- inputmode search: teclado de pesquisa no mobile -->
+      <input
+        type="search"
+        id="barra1"
+        placeholder="Pesquise um posto ou medicamento"
+        autocomplete="off"
+        inputmode="search">
+    </div>
+  </section>
 
-    <section id="card1" role="search">
-        <div><img src="medico.png" class="doctor-img"></div>
+  <!-- Seção com informações do app -->
+  <section id="info">
+    <div class="info-card">
 
-        <div class="search-box">
-            <input type="search" id="barra1" placeholder="Pesquise um posto ou medicamento" autocomplete="off"
-                inputmode="search">
+      <!-- Parte de cima do card (imagem + texto) -->
+      <div class="info-top">
+
+        <!-- Imagem do posto -->
+        <!-- Dica: preencher alt com algo descritivo é melhor -->
+        <img src="posto.webp" class="postinho" alt="Imagem de um posto de saúde">
+
+        <!-- Textos explicativos -->
+        <div class="txt">
+          <h2> Com o LOCALISUS você pode: </h2>
+
+          <!-- <br> força quebra de linha (ok), mas dá pra fazer isso no CSS também -->
+          <p>Visualizar os medicamentos disponíveis em <br> cada unidade do SUS em qualquer lugar do pais.</p>
+          <p>Localizar postos com algum medicamento <br> específico em estoque e traçar rotas até eles.</p>
         </div>
-    </section>
+      </div>
 
-    <section id="info">
+      <!-- Parte do meio: lista de vantagens + imagem -->
+      <!-- style inline = funciona, mas o ideal seria colocar isso no CSS -->
+      <div class="info-mid" style="margin-bottom: 50px;">
 
-        <div class="info-card">
-        
-            <div class=" info-top">
+        <!-- Lista de vantagens -->
+        <ul class="bullets">
+          <!-- OBS: h1 dentro de ul não é o mais semântico.
+               Melhor: colocar o h1 fora e aqui só li.
+               Mas mantive como você fez. -->
+          <h1>Vantagens do LOCALISUS:</h1>
 
-            <img src="posto.webp" class="thumb" alt="">
+          <li><p>Tempo reduzido no deslocamento</p></li>
+          <li><p>maior transparência em relação a <br> localização dos remédios</p></li>
+        </ul>
 
-            <div class="txt">
+        <!-- Imagem de remédio -->
+        <img src="medication.jpg" class="remedio" alt="Imagem de medicamentos">
+      </div>
 
-                <h2> Com o LOCALISUS você pode: </h2>
+      <!-- Linha separadora -->
+      <div class="divider"></div>
 
-                <p>Visualizar os medicamentos disponíveis em cada unidade do SUS em qualquer lugar do pais.</p>
-                <p>Localizar postos com algum medicamento específico em estoque e traçar rotas até eles.</p>
+      <!-- Chamada para baixar o app -->
+      <h1 id="txt-rodape">baixe o aplicativo para ter acesso <br> a todas funcionalidades!</h1>
 
-            </div>
-        </div>
+      <!-- Ícones das lojas -->
+      <div>
+        <img id="ggplay" src="google.png" alt="Google Play">
+        <img id="appstore" src="apple1.png" alt="App Store">
+      </div>
 
-        <h3>vantagens do localisus:</h3>
-        <div class="info-mid">
-            <ul class="bullets">
-
-                <li>Tempo reduzido no deslocamento</li>
-                <li>mais transparência na localização dos remédios</li>
-
-
-            </ul>
-
-            <img src="medication.jpg" class="thumb2">
-        </div>
-
-        <div class="divider"></div>
-
-        <h3>baixe o aplicativo para ter acesso a todas funcionalidades!</h3>
-
-        <div>
-            
-            <img src="google.png">
-            <img src="apple.png">
-            
-
-
-        </div>
-
-        </div>
-    </section>
+    </div>
+  </section>
 </body>
-
 </html>

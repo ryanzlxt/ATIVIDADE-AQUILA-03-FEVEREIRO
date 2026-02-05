@@ -1,111 +1,262 @@
+/* Variáveis globais (cores etc.) */
+:root {
+  --branco-fundo: #EBF9FF;
+}
+
+/* Configurações gerais do body */
 body {
-
-    margin: 0;
-    height: 100vh;
-    background: #EBF9FF;
-    display: flex;
-
-
+  margin: 0;
+  /* remove margem padrão do navegador */
+  height: 100vh;
+  /* altura da tela toda */
+  background: #EBF9FF;
+  /* cor de fundo do site */
 }
 
+/* Seção azul do topo (onde fica a busca e a imagem do médico) */
 #card1 {
+  position: relative;
+  /* permite posicionar elementos filhos com absolute */
+  background: #1F285D;
+  /* cor do card */
+  width: 100%;
+  height: 260px;
 
-    position: relative;
-    background-color: #1F285D;
-    width: 100%;
-    height: 30%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  /* layout flex */
+  justify-content: center;
+  /* centraliza horizontalmente */
+  align-items: flex-end;
+  /* alinha conteúdo na parte de baixo */
+  padding-bottom: 24px;
 
+  overflow: hidden;
+  /* corta o que passar do limite (imagem etc.) */
+}
 
+/* Imagem do médico como “fundo” centralizado */
+.doctor-img {
+  position: absolute;
+  /* sai do fluxo e fica “solta” dentro do #card1 */
+  left: 50%;
+  /* começa no meio */
+  transform: translateX(-50%);
+  /* centraliza de verdade */
+  bottom: 0;
+
+  height: 90%;
+  /* ocupa boa parte do card */
+  z-index: 1;
+  /* fica atrás da barra de busca (que tem z-index maior) */
+
+  /* Aplica um degrade vertical na imagem (some embaixo / transição) */
+  -webkit-mask-image: linear-gradient(to bottom,
+      black 0%,
+      black 0%,
+      transparent 100%);
 
 }
 
-.doctor-img{
-
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 0;
-    height: 90%;
-    z-index: 1;
-    -webkit-mask-image: linear-gradient(  
- to bottom,
-    black 0%,
-    black 0%,
-    transparent 100%
-  );
-
-/* pra deixar a imagem com um degrade radial */
-
-
-}
-
+/* Container da barra de pesquisa */
 .search-box {
   position: relative;
   z-index: 10;
+  /* garante que fica na frente do médico */
+  width: min(900px, 92vw);
+  /* responsivo: no máximo 900px, ou 92% da tela */
+  display: flex;
+  justify-content: center;
 }
 
+/* Input da barra de pesquisa */
 #barra1 {
-  background-color: #EBF9FF;
-  width: 450px;
+  width: clamp(280px, 60vw, 520px);
+  /* responsivo: min 280, ideal 60vw, max 520 */
   height: 44px;
-  border-radius: 24px;
-  padding-left: 90px; /* espaço pro ícone */
+  border-radius: 999px;
+  /* formato "pílula" */
+  padding: 0 18px;
+  /* espaço interno (laterais) */
   box-sizing: border-box;
-  font-size: medium;
-  color: #201533;
-  margin-top: 180px;
+  /* padding entra no cálculo da largura */
+  font-size: 16px;
+
+  border: 2px solid rgba(0, 0, 0, .7);
+  outline: none;
+  /* remove borda padrão ao focar */
+  background: #EBF9FF;
+  margin-top: 0;
 }
 
-#apagar1 {
-  position: absolute;
-  top: 50%;
-  left: 14px;
-  transform: translateY(-50%);
-  width: 18px;
-  height: 18px;
+
+/* Topo fixo com logo + menu + texto */
+#logos {
+  position: fixed;
+  /* fica sempre no topo da tela */
+  top: -7px;
+  left: 9px;
+
+  display: flex;
+  /* alinha itens lado a lado */
+  align-items: center;
+  gap: 12px;
+
+  z-index: 999;
+  /* fica acima de tudo */
+}
+
+/* Logo do LocaliSUS */
+.logo {
+  order: 1;
+  /* ordem do item dentro do flex */
+  height: 44px;
+  width: auto;
+  display: block;
+}
+
+/* Botão do menu (estilizado como “chip”) */
+.menu-btn {
+  height: 30px;
+  width: auto;
+
+  background-color: #EBF9FF;
+  padding: 10px;
+  border-radius: 15px;
+
+  display: block;
   cursor: pointer;
 }
 
-#logos {
-    position: fixed;
-    top: -7px;
-    left: 9px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    z-index: 999;
+/* Texto do topo */
+#Texto {
+  order: 3;
+  font-family: Montserrat;
+  color: #EBF9FF;
 }
 
-.logo{
+/* Área do conteúdo informativo */
+#info {
+  background: #EBF9FF;
+  padding: 24px 16px;
 
-order: 1;
-height: 44px;
-width: auto;
-display: block;
+  display: flex;
+  justify-content: center;
+  /* centraliza o card na página */
+}
+
+/* Card branco com sombra */
+.info-card {
+  width: min(900px, 92vw);
+  background-color: rgba(235, 249, 255, 1);
+
+  border-radius: 18px;
+  padding: 100px;
+  padding-top: 50px;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.10);
+}
+
+/* Parte de cima: imagem + texto lado a lado */
+.info-top {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+/* Imagem do posto com sombra */
+.postinho {
+  width: 180px;
+  height: 150px;
+  object-fit: cover;
+  /* corta mantendo proporção */
+  border-radius: 13px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.50);
+}
+
+/* Título dentro do bloco de texto */
+.txt h2 {
+  margin: 0 0 8px 0;
+  font-family: Montserrat;
+  color: #201533;
+}
+
+/* Parágrafos do texto */
+.txt p {
+  margin: 4px 0;
+  color: #201533;
+}
+
+/* Parte do meio: lista + imagem, com espaço entre elas */
+.info-mid {
+  margin-top: 14px;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+}
+
+/* Estilo da lista */
+.bullets {
+  margin: 0;
+  padding-left: 18px;
+  /* espaço para aparecer o marcador do <li> */
+}
+
+/* Imagem de medicamento */
+.remedio {
+  width: 180px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-right: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.50);
+}
+
+/* Linha divisória */
+.divider {
+  margin: 19px 0;
+  height: 4px;
+  background: #201533;
+  opacity: 1;
+  border-radius: 99px;
+}
+
+/* Classe stores (não está sendo usada no HTML atual) */
+.stores {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+/* Título secundário (não aparece no HTML atual) */
+#tit2 {
+  color: #201533;
+  font-family: Montserrat;
+  margin-top: 50px;
+  padding-bottom: 0px;
+}
+
+/* Define a fonte padrão dos parágrafos */
+p {
+  font-family: Roboto;
+}
+
+/* Texto do rodapé (chamada pra baixar app) */
+#txt-rodape {
+  text-align: center;
+  margin-top: 30px;
+}
+
+/* Imagem Google Play */
+#ggplay {
+  height: 90px;
+  margin-left: 110px;
 
 }
 
-.menu-btn {
-
-    height: 30px;
-    width: auto;
-    background-color: #EBF9FF;
-    padding: 10px;
-    border-radius: 15px;
-    display: block;
-    cursor: pointer;
+/* Imagem App Store */
+#appstore {
+  height: 90px;
+  margin-left: 50px;
 }
-
-#Texto{
-
-    order: 3;
-    font-family: Montserrat;
-    color: #EBF9FF;
-
-}
-
-
-
