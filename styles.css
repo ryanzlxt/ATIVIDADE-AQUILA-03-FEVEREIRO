@@ -121,7 +121,7 @@ body {
 
   background-color: #EBF9FF;
   padding: 10px;
-  border-radius: 15px;
+  border-radius: 10px;
 
   display: block;
   cursor: pointer;
@@ -136,7 +136,7 @@ body {
 
 /* Área do conteúdo informativo */
 #info {
-  background: #EBF9FF;
+  background: #1F285D;
   padding: 24px 16px;
 
   display: flex;
@@ -250,13 +250,31 @@ p {
 
 /* Imagem Google Play */
 #ggplay {
-  height: 90px;
-  margin-left: 110px;
+  height: 70px;
+  margin-left: 190px;
 
 }
 
 /* Imagem App Store */
 #appstore {
-  height: 90px;
-  margin-left: 50px;
+  height: 70px;
+  margin-left: 40px;
+  margin-top: 50px;
+}
+
+h1{
+
+font-family: Montserrat;
+color: #201533;
+
+}
+
+.store-btn
+{
+
+  display: inline-block;
+  border: none;
+  background: transparent;
+  padding: 0;
+
 }
